@@ -1,0 +1,60 @@
+<form 
+  [formGroup]="formData"
+  (submit)="formSubmit.emit(formData.value)"
+>
+  <div class="field">
+    <div class="control">
+      <input
+        class="input"
+        formControlName="firstname"
+        type="firstname" name="firstname" required minlength="5" placeholder="Your firstname"
+      >
+    </div>
+  </div>
+  
+  <div class="field">
+    <div class="control">
+      <input
+        class="input"
+        formControlName="lastname"
+        type="lastname" name="lastname" required minlength="5" placeholder="Your lastname"
+      >
+    </div>
+  </div>
+  
+  <div class="field">
+    <div class="control">
+      <input
+        class="input"
+        formControlName="email"
+        type="email" name="email" required minlength="5" placeholder="Your email"
+      >    
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <input
+        class="input"
+        formControlName="password"
+        type="password" name="password" required placeholder="Your password"
+      >    
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <input
+        class="input"
+        formControlName="confirmPassword"
+        type="password" name="confirmPassword" required placeholder="Confirm your password"
+      >    
+    </div>
+  </div>
+
+  <button
+    class="button is-primary"
+    [disabled]="!formData.valid"
+    type="submit"
+  >Enregistrer</button>
+</form>

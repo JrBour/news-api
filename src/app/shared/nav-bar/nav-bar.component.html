@@ -1,0 +1,36 @@
+<nav class="navbar is-link" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" [routerLink]="'/'">
+      <img src="assets/images/angular-logo.png">
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  
+  
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+        <a class="navbar-item" [routerLink]="'/'">Home</a>
+        <a *ngIf="isLogged" class="navbar-item" [routerLink]="'/bookmarks'">Bookmarks</a>
+    </div>
+  </div>
+
+  <div class="navbar-end">
+    <div class="navbar-item">
+      <div class="buttons">
+        <a *ngIf="!isLogged" [routerLink]="'/register'" class="button is-primary">
+          <strong>Sign up</strong>
+        </a>
+        <a *ngIf="!isLogged" [routerLink]="'/login'" class="button is-light">
+          Log in
+        </a>
+        <a *ngIf="isLogged" class="button is-light" (click)="logout()">Logout</a>
+
+      </div>
+    </div>
+  </div>
+</nav>

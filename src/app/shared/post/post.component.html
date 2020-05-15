@@ -1,0 +1,10 @@
+<div class="columns">
+  <div class="column is-4">
+    <img class="post-img" [src]="post.urlToImage" alt="post.name">
+  </div>
+  <div class="column is-4">
+    <h2>{{ post.name }}</h2>
+    <p>{{ post.description }}</p>
+    <a [href]="post.url">Read more</a>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<form
+  [formGroup]="formData"
+  (submit)="formSubmit.emit(formData.value)"
+>
+  <div class="field">
+    <div class="control">
+      <div class="select">
+        <select formControlName="source" name="email" >
+          <option *ngFor="let source of sources" [value]="source.id" >{{ source.name }}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <input
+        class="input"
+        formControlName="keywords"
+        type="text" name="keyword" placeholder="Any keywords ?"
+      >
+    </div>
+  </div>
+  
+  <div class="buttons">
+    <button 
+      class="button is-primary"
+      [disabled]="!formData.valid"
+      type="submit"
+    >Search</button>
+    <button class="button is-link" *ngIf="!checkBookmarks(formData.value.source) && isLogged" type="button" (click)="addBookmark.emit(formData.value.source)" >Add to bookmark</button>
+    <button class="button is-danger" *ngIf="checkBookmarks(formData.value.source) && isLogged" type="button" (click)="deleteBookmark.emit(formData.value.source)" >Delete bookmark</button>
+  </div>
+</form>

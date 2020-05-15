@@ -1,0 +1,13 @@
+<div class="container">
+  <h1 class="title">Favoris</h1>
+  <h2 class="subtitle">La liste de vos favoris</h2>
+  
+  <div class="buttons">
+      <button class="button is-small is-info" *ngFor="let bookmark of bookmarks" (click)="getArticles(bookmark.id)">{{ bookmark.name }}</button>
+  </div>
+
+  <h2 class="subtitle">Articles</h2>
+  <section *ngIf="posts && posts.length !== 0">
+    <app-post *ngFor="let post of posts" [post]="post"></app-post>
+  </section>
+</div>

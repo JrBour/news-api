@@ -1,0 +1,35 @@
+<div class="columns is-mobile">
+  <div class="column is-half is-offset-one-quarter">
+    <form 
+      [formGroup]="formData"
+      (submit)="formSubmit.emit({email: formData.value.email,  password: formData.value.password})"
+    >
+      <div class="field">
+        <div class="control">
+          <input
+            class="input"  
+            formControlName="email"
+            type="email" name="email" required minlength="5" placeholder="Your email"
+          >
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <input
+            class="input"  
+            formControlName="password"
+            type="password" name="password" required placeholder="Your password"
+          >
+        </div>
+      </div>
+      <button
+        class="button is-primary"
+        [disabled]="!formData.valid"
+        type="submit"
+      >
+        Valider
+      </button>
+    </form>
+  </div>
+</div>

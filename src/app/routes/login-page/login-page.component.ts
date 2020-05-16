@@ -20,7 +20,13 @@ export class LoginPageComponent {
 
     this.CrudService.createItem('login', user).then(({ data }) => {
       localStorage.setItem('token', data.token);
-      this.Router.navigateByUrl('/'); 
+
+      this.CrudService.createItem('me', { token: data.token })
+        .then(({ data: { bookmark } }) => {
+          this.ObservablesService.setObservableData('bookmarks', bookmark)
+          this.Router.navigateByUrl('/');
+        })
+        .catch(console.error)
     }).catch(error => console.error(error));
   };
 
